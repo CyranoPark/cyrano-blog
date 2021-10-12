@@ -11,6 +11,7 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
     "prettier"
   ],
   "parserOptions": {
@@ -30,13 +31,13 @@
     "@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-unused-vars": ["warn"],
     "@typescript-eslint/no-use-before-define": "off",
-    "@typescript-eslint/camelcase": [2, { "properties": "never" }],
+//    "@typescript-eslint/camelcase": [2, { "properties": "never" }],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": 0,
     "import/no-unresolved": 0,
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/interface-name-prefix": [2, { "prefixWithI": "always" }],
+//    "@typescript-eslint/interface-name-prefix": [2, { "prefixWithI": "always" }],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-var-requires": "off",
     "react/no-unescaped-entities": 0

@@ -1,14 +1,19 @@
 import React, { useRef, useState, useEffect, Suspense } from 'react';
 import * as THREE from 'three';
-import { Canvas, useFrame, useLoader } from 'react-three-fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 
 const Box = (props) => {
-    const mesh = useRef();
+    const mesh = useRef(null);
 
     const [hovered, setHover] = useState(false);
     const [active, setActive] = useState(false);
 
-    useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01));
+    useFrame(() => {
+        if (typeof mesh?.current?.rotation === 'object') {
+            mesh.current.rotation.x += 0.01;
+            mesh.current.rotation.y += 0.01;
+        }
+    });
 
     return (
         <mesh
