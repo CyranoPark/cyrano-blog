@@ -1,15 +1,21 @@
 {
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
   "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
   "extends": [
-    "plugin:react/recommended", //recommended 붙여져 있는건 preset을 사용하겠다는 의미
-    "prettier", // 8.0.0 버젼이상은 모두 prettier로 통합됨.
-    "plugin:@typescript-eslint/eslint-recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 2018,
     "sourceType": "module",
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true
     }
@@ -19,21 +25,28 @@
       "version": "detect"
     }
   },
-  "ignorePatterns": ["*.config.js"],
+  "globals": {},
   "rules": {
-    "max-len": ["error", { "code": 140, "ignoreUrls": true }],
-    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/camelcase": [2, { "properties": "never" }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": 0,
+    "import/no-unresolved": 0,
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/interface-name-prefix": [2, { "prefixWithI": "always" }],
     "@typescript-eslint/explicit-function-return-type": "off",
-    "react/no-unescaped-entities": [
-      "error",
-      {
-        "forbid": [{ "char": ">", "alternatives": ["&gt;"] }, { "char": "}", "alternatives": ["&#125;"] }]
+    "@typescript-eslint/no-var-requires": "off",
+    "react/no-unescaped-entities": 0
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
       }
-    ],
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-    "@typescript-eslint/interface-name-prefix": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off"
-  }
+    }
+  ]
 }
