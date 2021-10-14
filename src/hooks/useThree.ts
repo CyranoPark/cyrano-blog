@@ -60,6 +60,14 @@ function useThree({ color, size, cameraOption }: IUseTreeProps) {
             const canvas = renderer.domElement;
             camera.aspect = canvas.clientWidth / canvas.clientHeight;
             camera.updateProjectionMatrix();
+
+            camera.position.z += 0.5;
+            camera.lookAt(scene.position);
+
+            if (camera.position.z > 1000) {
+                camera.position.z = cameraOption.position.z;
+                camera.lookAt(scene.position);
+            }
         };
 
         ThreeService.animate(scene, camera, renderer, render);
@@ -70,6 +78,17 @@ function useThree({ color, size, cameraOption }: IUseTreeProps) {
             renderer.setSize(window.innerWidth, window.innerHeight);
         }
 
+        let mouseX;
+        let mouseY;
+
+        function handlePointerMove(event) {
+            if (event.isPrimary === false) return;
+
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        }
+
+        document.body.addEventListener('pointermove', handlePointerMove);
         window.addEventListener('resize', handleResize);
 
         return () => {
