@@ -11,8 +11,8 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier"
+    "plugin:prettier/recommended"
+//    "prettier"
   ],
   "parserOptions": {
     "sourceType": "module",
